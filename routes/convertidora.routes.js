@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { convertirTiempo } = require("../operaciones/convertidora/tiempo.js");
-const { convertirPeso } = require("../operaciones/convertidora/peso.js");
-const { convertirTemperatura } = require("../operaciones/convertidora/temperatura.js");
-const { convertirMoneda } = require("../operaciones/convertidora/moneda.js");
+const { convertirTiempo } = require("../api/tiempo.js");
+const { convertirPeso } = require("../api/peso.js");
+const { convertirTemperatura } = require("../api/temperatura.js");
+const { convertirMoneda } = require("../api/moneda.js");
 
 
 

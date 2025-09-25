@@ -1,4 +1,4 @@
-const {add, subtract, multiply} = require('../operaciones/operaciones.js');
+const {add, subtract, multiply} = require('../api/operaciones.js');
 
 function sumar(req, res){
     const {body} = req;
