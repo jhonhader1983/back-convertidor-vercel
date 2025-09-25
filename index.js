@@ -1,8 +1,6 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
 // Rutas de calculadora
@@ -13,6 +11,7 @@ app.use('/v1/calculadora', calculadoraRouter);
 const convertidoraRouter = require('./routes/convertidora.routes.js');
 app.use('/v1/convertidora', convertidoraRouter);
 
-app.listen(3500, () => {
-    console.log('Servidor escuchando en puerto 3500');
+const PORT = process.env.PORT || 3500;
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en puerto ${PORT}`);
 });
