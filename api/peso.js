@@ -1,6 +1,21 @@
 export default function handler(req, res) {
+  // Configuración CORS
+  res.setHeader("Access-Control-Allow-Origin", "https://front-conver-vercel.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Manejo de preflight (OPTIONS)
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method === "POST") {
-    const { value, from, to } = req.body;
+    let { value, from, to } = req.body;
+    value = parseFloat(value);
+
+    if (isNaN(value)) {
+      return res.status(400).json({ error: "Valor no válido" });
+    }
 
     const conversion = {
       gramos: 1,

@@ -1,11 +1,20 @@
 export default function handler(req, res) {
+  // Configuración CORS
+  res.setHeader("Access-Control-Allow-Origin", "https://front-conver-vercel.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end(); // Responde rápido a preflight
+  }
+
   if (req.method === "POST") {
     const { value, from, to } = req.body;
 
     const conversion = {
       horas: 1,
       dias: 24,
-      meses: 720,   // aprox 30 días
+      meses: 720,   // ~30 días
       años: 8760    // 365 días
     };
 
